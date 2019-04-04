@@ -14,5 +14,4 @@ client.fetch(url, params, function(err, $, res){
         var li = $(this).html();
         console.log(li);
     })
-    
 })
