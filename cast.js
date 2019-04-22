@@ -18,12 +18,12 @@ request(url, function(err, response, body){
     //미세먼지
     // console.log('2');
     var result;
-    var resultList=['좋음','보통','나쁨','매우 나쁨']
+    var resultList=['좋음','보통','나쁨','매우 나쁨'];
     var dust;
     request(url2, function(err, response, body){
         var $ = cheerio.load(body);
         dust = $('em.main_figure').text();
-
+        console.log(result);
         if(dust<=30)
         {
             result = resultList[0];
@@ -34,7 +34,7 @@ request(url, function(err, response, body){
         {
             result = resultList[2];
         }else{
-            result = reusltList[3];
+            result = resultList[3];
         }
         dust = dust + '㎍/㎥';
         result = `미세먼지 수치는 ${dust}이고 상태는 ${result}입니다.`
